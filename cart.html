@@ -10,6 +10,25 @@
 <div id="cart-items"></div>
 <h3>Total: ₹<span id="total"></span></h3>
 
+<script src="js/data.js"></script>
 <script src="js/cart.js"></script>
+<script>
+const items = document.getElementById("cart-items");
+let total = 0;
+
+cart.forEach(id=>{
+  const p = products.find(x=>x.id===id);
+  total += p.price;
+  items.innerHTML += `
+    <div class="cart-row">
+      <img src="${p.image}">
+      <div>
+        <h4>${p.name}</h4>
+        <p>₹${p.price}</p>
+      </div>
+    </div>`;
+});
+document.getElementById("total").innerText = total;
+</script>
 </body>
 </html>
