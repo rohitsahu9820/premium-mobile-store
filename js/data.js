@@ -18,6 +18,6 @@ const products = [
     name: "Clear MagSafe Case",
     price: 1499,
     image: "https://images.unsplash.com/photo-1611078489935-0cb964de46d6",
-    desc: "Crystal clear case with MagSafe support"
+    desc: "MagSafe compatible crystal-clear protection"
   }
 ];
