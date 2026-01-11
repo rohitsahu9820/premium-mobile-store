@@ -17,6 +17,41 @@ header {
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:25px;
 }
+.cart-row {
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin:15px;
+  padding:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  border-radius:12px;
+}
+
+.cart-row img {
+  width:80px;
+  height:80px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+.cart-info {
+  flex:1;
+}
+
+.remove-btn {
+  background:#ff3b3b;
+  color:#fff;
+  border:none;
+  padding:8px 14px;
+  border-radius:20px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.remove-btn:hover {
+  background:#d60000;
+}
+
 
 .product-card {
   border-radius:16px;
