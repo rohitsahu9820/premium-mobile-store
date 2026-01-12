@@ -1,29 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>LuxCase – Premium Mobile Accessories</title>
-  <link rel="stylesheet" href="css/style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TheFestive – Premium Custom Phone Cases</title>
+
+  <link rel="icon" href="assets/icons/favicon.ico">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <h1>LuxCase</h1>
-  <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+<!-- HEADER -->
+<header class="header">
+  <div class="logo">
+    <img src="assets/logos/logo-primary.png" alt="TheFestive Logo">
+  </div>
+
+  <nav class="nav">
+    <a href="#">Shop</a>
+    <a href="#">Customize</a>
+    <a href="#">Eco</a>
+  </nav>
+
+  <button class="cart-btn">Cart</button>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-  <h2>Premium Protection. Elegant Design.</h2>
+  <h1>Designed for Your Phone.<br>Crafted for You.</h1>
+  <p>
+    Premium eco-friendly phone cases with custom name & photo engraving,
+    finished in luxury leather.
+  </p>
+  <button class="primary-btn">Customize Your Case</button>
 </section>
 
-<section>
-  <h2 style="padding:20px">Featured Products</h2>
-  <div class="product-grid" id="home-products"></div>
+<!-- DEVICES -->
+<section class="devices">
+  <h2>Shop by Device</h2>
+  <div class="device-grid">
+    <div class="device-card">iPhone</div>
+    <div class="device-card">Samsung</div>
+    <div class="device-card">OnePlus</div>
+  </div>
 </section>
 
-<script src="js/data.js"></script>
-<script src="js/cart.js"></script>
-<script src="js/home.js"></script>
+<!-- FEATURES -->
+<section class="features">
+  <div class="feature">
+    <span>🌱</span>
+    <h3>Eco-Friendly Materials</h3>
+    <p>Responsibly sourced & sustainable.</p>
+  </div>
 
+  <div class="feature">
+    <span>🧵</span>
+    <h3>Luxury Leather Finish</h3>
+    <p>Premium texture with long-lasting quality.</p>
+  </div>
+
+  <div class="feature">
+    <span>✍️</span>
+    <h3>Personalized Design</h3>
+    <p>Add your name or photo instantly.</p>
+  </div>
+</section>
+
+<!-- CUSTOMIZATION -->
+<section class="customize">
+  <h2>Personalize in Seconds</h2>
+  <p>Select device → Add name/photo → Preview → Order</p>
+  <button class="secondary-btn">Start Customizing</button>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <img src="assets/logos/logo-mobile.png" alt="TheFestive Logo">
+  <p>© 2026 TheFestive. Thoughtfully made 🌱</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
