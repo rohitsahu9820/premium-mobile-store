@@ -1,23 +1,14 @@
+// Sample product data (ONLY ONE PRODUCT)
+
 const products = [
   {
     id: 1,
-    name: "Luxury Leather iPhone Case",
-    price: 1999,
-    image: "https://images.unsplash.com/photo-1603899123950-2b4c5fcb93f1",
-    desc: "Handcrafted premium leather with shock protection"
-  },
-  {
-    id: 2,
-    name: "Matte Silicone Case",
-    price: 1299,
-    image: "https://images.unsplash.com/photo-1580910051074-7c98c6fce6c5",
-    desc: "Soft-touch silicone with minimalist design"
-  },
-  {
-    id: 3,
-    name: "Clear MagSafe Case",
-    price: 1499,
-    image: "https://images.unsplash.com/photo-1611078489935-0cb964de46d6",
-    desc: "MagSafe compatible crystal-clear protection"
+    name: "Premium Silicone Mobile Case",
+    price: 499,
+    image: "assets/sample-product.jpg",
+    description: "High-quality premium silicone case with shock protection."
   }
 ];
+
+// Cart data (persistent)
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
