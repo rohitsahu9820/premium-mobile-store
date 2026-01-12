@@ -4,71 +4,67 @@
   <meta charset="UTF-8">
   <title>Your Cart</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Main CSS -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <main class="cart-page">
-    <h2>Your Cart 🛒</h2>
+<header class="header">
+  <h2>LuxCase</h2>
+  <nav>
+    <a href="products.html">Shop</a>
+  </nav>
+</header>
 
-    <div id="cart-items" class="cart-items"></div>
+<main class="cart-page">
+  <h2>Your Cart 🛒</h2>
+  <div id="cart-items"></div>
+  <div class="cart-total">
+    Total: ₹<span id="total">0</span>
+  </div>
+</main>
 
-    <div class="cart-total">
-      <h3>Total: ₹<span id="total">0</span></h3>
-    </div>
-  </main>
+<footer class="footer">
+  <p class="credit">Developed and Designed by Rohit Sahu</p>
+</footer>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <p>Developed and Designed by <strong>Rohit Sahu</strong></p>
-  </footer>
+<script src="js/data.js"></script>
+<script src="js/cart.js"></script>
 
-  <!-- JS Files -->
-  <script src="js/data.js"></script>
-  <script src="js/cart.js"></script>
+<script>
+function renderCart() {
+  const items = document.getElementById("cart-items");
+  const totalEl = document.getElementById("total");
 
-  <script>
-    function renderCart() {
-      const items = document.getElementById("cart-items");
-      const totalEl = document.getElementById("total");
+  items.innerHTML = "";
+  let total = 0;
 
-      items.innerHTML = "";
-      let total = 0;
+  if (cart.length === 0) {
+    items.innerHTML = "<p class='empty-cart'>Your cart is empty 🛒</p>";
+    totalEl.innerText = "0";
+    return;
+  }
 
-      // ✅ Handle empty cart safely
-      if (!cart || cart.length === 0) {
-        items.innerHTML = "<p class='empty-cart'>Your cart is empty 🛒</p>";
-        totalEl.innerText = "0";
-        return;
-      }
+  cart.forEach((id, index) => {
+    const p = products.find(x => x.id === id);
+    total += p.price;
 
-      cart.forEach((id, index) => {
-        const p = products.find(x => x.id === id);
-        if (!p) return;
+    items.innerHTML += `
+      <div class="cart-row">
+        <img src="${p.image}">
+        <div class="cart-info">
+          <h4>${p.name}</h4>
+          <p>₹${p.price}</p>
+        </div>
+        <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+      </div>
+    `;
+  });
 
-        total += p.price;
+  totalEl.innerText = total;
+}
 
-        items.innerHTML += `
-          <div class="cart-row">
-            <img src="${p.image}" alt="${p.name}">
-            <div class="cart-info">
-              <h4>${p.name}</h4>
-              <p>₹${p.price}</p>
-            </div>
-            <button class="remove-btn" onclick="removeFromCart(${index})">
-              Remove
-            </button>
-          </div>
-        `;
-      });
-
-      totalEl.innerText = total;
-    }
-
-    renderCart();
-  </script>
+renderCart();
+</script>
 
 </body>
 </html>
