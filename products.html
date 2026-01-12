@@ -1,25 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Shop – Premium Mobile Accessories</title>
-  <link rel="stylesheet" href="css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<header>
-  <h1>LuxCase</h1>
-  <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
-</header>
+  <!-- Header -->
+  <header class="site-header">
+    <h1 class="brand-name">LuxCase</h1>
 
-<section class="product-grid" id="product-list">
-  <!-- Products will load here automatically -->
-</section>
+    <nav class="header-nav">
+      <a href="cart.html" class="cart-link">
+        🛒 Cart (<span id="cart-count">0</span>)
+      </a>
+    </nav>
+  </header>
 
-<!-- Scripts -->
-<script src="js/data.js"></script>
-<script src="js/cart.js"></script>
-<script src="js/products.js"></script>
+  <!-- Products Section -->
+  <main>
+    <section class="product-grid" id="product-list">
+      <!-- Products will load here dynamically -->
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>Developed and Designed by <strong>Rohit Sahu</strong></p>
+  </footer>
+
+  <!-- Scripts (order matters) -->
+  <script src="js/data.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/products.js"></script>
 
 </body>
 </html>
