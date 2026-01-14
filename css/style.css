@@ -378,9 +378,11 @@ body {
 @media (max-width: 768px) {
 
   .footer {
-    text-align: left;
-    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
+
 
   .footer-logo {
     margin-left: 0;
