@@ -1,5 +1,6 @@
+// LOAD NAVBAR
 fetch("partials/navbar.html")
-  .then(response => response.text())
+  .then(res => res.text())
   .then(data => {
     document.getElementById("navbar").innerHTML = data;
 
@@ -18,5 +19,11 @@ fetch("partials/navbar.html")
         link.classList.add("active");
       }
     });
-  })
-  .catch(err => console.error("Navbar load error:", err));
+  });
+
+// LOAD FOOTER
+fetch("partials/footer.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("footer").innerHTML = data;
+  });
