@@ -339,12 +339,12 @@ body {
 
 .typing-text {
   display: inline-block;
-  border-right: 3px solid #111;
+  border-right: 3px solid gold;
   white-space: nowrap;
   overflow: hidden;
   width: 0;
   animation:
-    typing 2.8s steps(10, end) infinite,
+    typing 3.8s steps(10, end) infinite,
     blink 0.8s step-end infinite;
 }
 
