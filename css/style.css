@@ -328,3 +328,45 @@ body {
   background: #fff;
   z-index: 1000;
 }
+/* TYPING ANIMATION */
+.typing-wrapper {
+  font-size: 42px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #111;
+  margin-bottom: 20px;
+}
+
+.typing-text {
+  display: inline-block;
+  border-right: 3px solid #111;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+  animation:
+    typing 2.8s steps(10, end) infinite,
+    blink 0.8s step-end infinite;
+}
+
+/* Typing effect */
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  40% {
+    width: 10ch;
+  }
+  70% {
+    width: 10ch;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+/* Cursor blink */
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
