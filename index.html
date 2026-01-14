@@ -9,13 +9,20 @@
 <body>
 
 <header class="header">
-  <img src="assets/icons/favicon.png" alt="Thefestive Logo" class="logo">
+  <div class="brand">
+    <img src="assets/icons/favicon.png" alt="Thefestive Logo" class="logo">
+    <span class="brand-name">Thefestive</span>
+  </div>
+
   <nav>
-    <a href="index.html">Home</a>
+    <a href="index.html" class="active">Home</a>
     <a href="products.html">Shop</a>
-    <a href="cart.html">Cart (<span id="cart-count">0</span>)</a>
+    <a href="cart.html" class="cart-link">
+      Cart <span id="cart-count">0</span>
+    </a>
   </nav>
 </header>
+
   
 <section class="hero">
   <div class="hero-content">

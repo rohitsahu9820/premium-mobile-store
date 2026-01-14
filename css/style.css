@@ -273,3 +273,58 @@ body {
   }
 }
 
+/* =========================
+   NAVBAR ENHANCEMENTS
+========================= */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+/* NAV LINKS */
+.header nav a {
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+.header nav a:hover {
+  color: #000;
+}
+
+/* ACTIVE LINK */
+.header nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: #000;
+}
+
+/* CART BADGE */
+.cart-link span {
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 6px;
+}
+
+/* STICKY NAVBAR */
+.header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1000;
+}
