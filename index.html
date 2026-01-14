@@ -10,11 +10,15 @@
 
 <header class="header">
   <div class="brand">
-    <img src="assets/logos/logo-icon.png" alt="Thefestive Logo" class="logo">
+    <img src="assets/icons/favicon.png" alt="Thefestive Logo" class="logo">
     <span class="brand-name">Thefestive</span>
   </div>
 
-  <nav>
+  <div class="menu-toggle" id="menuToggle">
+    ☰
+  </div>
+
+  <nav id="navMenu">
     <a href="index.html" class="active">Home</a>
     <a href="products.html">Shop</a>
     <a href="cart.html" class="cart-link">
@@ -22,6 +26,7 @@
     </a>
   </nav>
 </header>
+
 
 <section class="hero">
   <div class="hero-content">
@@ -51,5 +56,14 @@
 
 <script src="js/data.js"></script>
 <script src="js/cart.js"></script>
+<script>
+  const menuToggle = document.getElementById("menuToggle");
+  const navMenu = document.getElementById("navMenu");
+
+  menuToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+  });
+</script>
+
 </body>
 </html>
