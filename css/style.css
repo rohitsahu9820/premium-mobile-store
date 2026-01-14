@@ -1,3 +1,6 @@
+/* =========================
+   RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
@@ -10,17 +13,43 @@ body {
   color: #111;
 }
 
-/* HEADER */
+/* =========================
+   HEADER / NAVBAR
+========================= */
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 18px 30px;
+  background: #fff;
   box-shadow: 0 8px 20px rgba(0,0,0,.06);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Brand */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .logo {
   height: 40px;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+/* Desktop Nav */
+.header nav {
+  display: flex;
+  align-items: center;
 }
 
 .header nav a {
@@ -28,9 +57,47 @@ body {
   text-decoration: none;
   color: #111;
   font-weight: 500;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
 }
 
-/* HERO */
+.header nav a:hover {
+  color: #000;
+}
+
+/* Active Link */
+.header nav a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: #000;
+}
+
+/* Cart Badge */
+.cart-link span {
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 6px;
+}
+
+/* Hamburger */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+
 .hero {
   height: 85vh;
   display: flex;
@@ -40,17 +107,13 @@ body {
   padding: 20px;
 }
 
-.hero-content h1 {
-  font-size: 3rem;
-  margin-bottom: 15px;
-}
-
 .hero-content p {
   font-size: 1.2rem;
   color: #555;
   margin-bottom: 30px;
 }
 
+/* CTA Button */
 .cta-btn {
   padding: 14px 34px;
   border-radius: 40px;
@@ -65,11 +128,50 @@ body {
   background: #333;
 }
 
-.cta-btn.dark {
-  background: #111;
+/* =========================
+   TYPING BRAND ANIMATION
+========================= */
+
+.typing-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 18px;
 }
 
-/* FEATURES */
+.typing-text {
+  font-size: clamp(26px, 6vw, 42px);
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #111;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid gold;
+  text-shadow: 0 0 8px rgba(255,215,0,0.4);
+  width: 0;
+  animation:
+    typing 3.8s steps(10, end) infinite,
+    blink 0.8s step-end infinite;
+}
+
+@keyframes typing {
+  0% { width: 0; }
+  40% { width: 10ch; }
+  70% { width: 10ch; }
+  100% { width: 0; }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* =========================
+   FEATURES
+========================= */
+
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -88,38 +190,6 @@ body {
   margin-bottom: 10px;
 }
 
-/* CTA */
-.cta {
-  padding: 70px 20px;
-  text-align: center;
-  background: #f7f7f7;
-}
-
-/* FOOTER */
-.footer {
-  text-align: center;
-  padding: 40px 20px;
-  background: #111;
-  color: #ccc;
-}
-
-.footer-logo {
-  height: 35px;
-  margin-bottom: 10px;
-}
-
-.credit {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #888;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  .hero-content h1 {
-    font-size: 2.2rem;
-  }
-}
 /* =========================
    PRODUCTS PAGE
 ========================= */
@@ -208,16 +278,6 @@ body {
   flex: 1;
 }
 
-.cart-info h4 {
-  margin-bottom: 5px;
-  font-size: 16px;
-}
-
-.cart-info p {
-  font-weight: 600;
-  color: #333;
-}
-
 .remove-btn {
   background: #ff4d4d;
   color: #fff;
@@ -227,30 +287,64 @@ body {
   cursor: pointer;
 }
 
-.remove-btn:hover {
-  background: #e63939;
-}
+/* =========================
+   FOOTER
+========================= */
 
-.cart-total {
-  margin-top: 25px;
-  padding: 18px;
-  border-radius: 15px;
-  background: #f6f6f6;
-  text-align: right;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.empty-cart {
+.footer {
   text-align: center;
-  font-size: 16px;
-  color: #777;
-  padding: 40px;
+  padding: 40px 20px;
+  background: #111;
+  color: #ccc;
+}
+
+.credit {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #888;
 }
 
 /* =========================
-   MOBILE CART FIX
+   MOBILE FIXES
 ========================= */
+
+@media (max-width: 768px) {
+
+  .header {
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .header nav {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    margin-top: 15px;
+  }
+
+  .header nav.show {
+    display: flex;
+  }
+
+  .header nav a {
+    margin: 12px 0;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .typing-text {
+    letter-spacing: 0.6px;
+    border-right-width: 2px;
+  }
+
+  .hero {
+    height: auto;
+    padding: 80px 20px;
+  }
+}
 
 @media (max-width: 600px) {
   .cart-row {
@@ -266,173 +360,5 @@ body {
   .remove-btn {
     width: 100%;
     margin-top: 10px;
-  }
-
-  .cart-total {
-    text-align: center;
-  }
-}
-
-/* =========================
-   NAVBAR ENHANCEMENTS
-========================= */
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.brand-name {
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 0.4px;
-}
-
-/* NAV LINKS */
-.header nav a {
-  position: relative;
-  padding-bottom: 5px;
-  transition: color 0.3s ease;
-}
-
-.header nav a:hover {
-  color: #000;
-}
-
-/* ACTIVE LINK */
-.header nav a.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 100%;
-  height: 2px;
-  background: #000;
-}
-
-/* CART BADGE */
-.cart-link span {
-  background: #000;
-  color: #fff;
-  font-size: 12px;
-  padding: 2px 8px;
-  border-radius: 12px;
-  margin-left: 6px;
-}
-
-/* STICKY NAVBAR */
-.header {
-  position: sticky;
-  top: 0;
-  background: #fff;
-  z-index: 1000;
-}
-/* =========================
-   TYPING BRAND ANIMATION
-========================= */
-
-.typing-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-bottom: 18px;
-}
-
-/* Text */
-.typing-text {
-  font-size: clamp(26px, 6vw, 42px);
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: #111;
-
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-
-  border-right: 3px solid gold;
-  text-shadow: 0 0 8px rgba(255,215,0,0.4);
-
-  width: 0;
-  animation:
-    typing 3.8s steps(10, end) infinite,
-    blink 0.8s step-end infinite;
-}
-
-/* Typing animation */
-@keyframes typing {
-  0% {
-    width: 0;
-  }
-  40% {
-    width: 10ch;
-  }
-  70% {
-    width: 10ch;
-  }
-  100% {
-    width: 0;
-  }
-}
-
-/* Cursor blink */
-@keyframes blink {
-  50% {
-    border-color: transparent;
-  }
-}
-
-/* =========================
-   MOBILE OPTIMIZATION
-========================= */
-
-@media (max-width: 768px) {
-  .typing-container {
-    margin-bottom: 14px;
-  }
-
-  .typing-text {
-    letter-spacing: 0.6px;
-    border-right-width: 2px;
-  }
-}
-/* =========================
-   MOBILE NAV FIX
-========================= */
-
-.menu-toggle {
-  display: none;
-  font-size: 26px;
-  cursor: pointer;
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
-
-  .header {
-    flex-wrap: wrap;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  nav {
-    width: 100%;
-    display: none;
-    flex-direction: column;
-    margin-top: 15px;
-  }
-
-  nav a {
-    margin: 12px 0;
-    text-align: center;
-    font-size: 16px;
-  }
-
-  nav.show {
-    display: flex;
   }
 }
