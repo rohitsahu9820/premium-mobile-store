@@ -1,17 +1,17 @@
-const productList = document.getElementById("product-list");
+const productGrid = document.getElementById("productGrid");
+const products = JSON.parse(localStorage.getItem("products")) || [];
 
-products.forEach(product => {
-  const card = document.createElement("div");
-  card.className = "product-card";
-
-  card.innerHTML = `
-    <img src="${product.image}">
-    <h3>${product.name}</h3>
-    <p>₹${product.price}</p>
-    <button onclick="addToCart(${product.id})">Add to Cart</button>
-  `;
-
-  productList.appendChild(card);
-});
-
-updateCartCount();
+if (products.length === 0) {
+  productGrid.innerHTML = "<p>No products available</p>";
+} else {
+  products.forEach(product => {
+    productGrid.innerHTML += `
+      <div class="product-card">
+        <img src="${product.image}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p>₹${product.price}</p>
+        <button>Add to Cart</button>
+      </div>
+    `;
+  });
+}
