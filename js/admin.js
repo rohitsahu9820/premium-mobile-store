@@ -29,3 +29,11 @@ function addProduct() {
   document.getElementById("price").value = "";
   document.getElementById("image").value = "";
 }
+function getProducts() {
+  try {
+    return JSON.parse(localStorage.getItem("products")) || [];
+  } catch {
+    return [];
+  }
+}
+

@@ -1,30 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
-
-  const productGrid = document.getElementById("productGrid");
-
-  if (!productGrid) {
-    console.error("productGrid not found");
-    return;
-  }
+  const grid = document.getElementById("productGrid");
+  if (!grid) return;
 
   const products = JSON.parse(localStorage.getItem("products")) || [];
 
   if (products.length === 0) {
-    productGrid.innerHTML = "<p style='text-align:center;'>No products available</p>";
+    grid.innerHTML = "<p>No products available</p>";
     return;
   }
 
-  productGrid.innerHTML = "";
-
-  products.forEach(product => {
-    productGrid.innerHTML += `
+  grid.innerHTML = "";
+  products.forEach(p => {
+    grid.innerHTML += `
       <div class="product-card">
-        <img src="${product.image}" alt="${product.name}">
-        <h3>${product.name}</h3>
-        <p>₹${product.price}</p>
-        <button>Add to Cart</button>
+        <img src="${p.image}">
+        <h3>${p.name}</h3>
+        <p>₹${p.price}</p>
+        <button onclick="addToCart(${p.id})">Add to Cart</button>
       </div>
     `;
   });
-
 });
