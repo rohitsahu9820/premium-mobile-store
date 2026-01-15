@@ -1,16 +1,13 @@
 /* =========================
    RESET
 ========================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+html, body {
+  height: 100%;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background: #ffffff;
-  color: #111;
+  display: flex;
+  flex-direction: column;
 }
 
 /* =========================
@@ -313,6 +310,11 @@ body {
   height: 40px;
   margin-bottom: 15px;
 }
+
+#footer {
+  margin-top: auto;
+}
+
 /* =========================
    MOBILE FIXES
 ========================= */
@@ -399,16 +401,4 @@ body {
    STICKY FOOTER FIX
 ========================= */
 
-html, body {
-  height: 100%;
-}
 
-.page-wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.main-content {
-  flex: 1; /* pushes footer to bottom */
-}
