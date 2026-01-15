@@ -1,9 +1,21 @@
-const productGrid = document.getElementById("productGrid");
-const products = JSON.parse(localStorage.getItem("products")) || [];
+document.addEventListener("DOMContentLoaded", () => {
 
-if (products.length === 0) {
-  productGrid.innerHTML = "<p>No products available</p>";
-} else {
+  const productGrid = document.getElementById("productGrid");
+
+  if (!productGrid) {
+    console.error("productGrid not found");
+    return;
+  }
+
+  const products = JSON.parse(localStorage.getItem("products")) || [];
+
+  if (products.length === 0) {
+    productGrid.innerHTML = "<p style='text-align:center;'>No products available</p>";
+    return;
+  }
+
+  productGrid.innerHTML = "";
+
   products.forEach(product => {
     productGrid.innerHTML += `
       <div class="product-card">
@@ -14,4 +26,5 @@ if (products.length === 0) {
       </div>
     `;
   });
-}
+
+});
