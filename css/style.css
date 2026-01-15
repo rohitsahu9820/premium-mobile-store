@@ -395,3 +395,20 @@ body {
     line-height: 1.6;
   }
 }
+/* =========================
+   STICKY FOOTER FIX
+========================= */
+
+html, body {
+  height: 100%;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1; /* pushes footer to bottom */
+}
